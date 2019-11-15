@@ -1,3 +1,4 @@
+using Entity;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -15,29 +16,55 @@ public class Character : MonoBehaviour {
 
     private Transform _transform;
     private Rigidbody2D _rigidbody2D;
+    private GroundedCharacterController _controller;
     private PlayerControls PlayerInput;
+
+    public float Mass => _rigidbody2D.mass;
+
+    public Vector2 Velocity {
+        get => _rigidbody2D.velocity;
+        set => _rigidbody2D.velocity = value;
+    }
+
+    public Vector2 Impulse {
+        set => _rigidbody2D.AddForce(value, ForceMode2D.Impulse);
+    }
 
     private void Awake() {
         _transform = GetComponent<Transform>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         
+        _controller = new GroundedCharacterController(this);
+        
         PlayerInput = new PlayerControls();
         PlayerInput.Player.Move.performed += ctx => _moveDirection = ctx.ReadValue<float>();
         PlayerInput.Player.Jump.performed += ctx => _jumpPerformed = ctx.ReadValue<float>() > 0;
+        PlayerInput.Player.Shoot.performed += ctx => ProcessShot();
     }
 
     private void OnEnable() => PlayerInput.Player.Enable();
     private void OnDisable() => PlayerInput.Player.Disable();
 
-    private void FixedUpdate() {
-        GroundCheck();
-        ProcessMove();
+    private void ProcessShot() {
+        Raycast(new Vector2(_facingDirection, 1f), Vector2.right * _facingDirection, 5f);
     }
 
-    public void ProcessMove() {
+    private void FixedUpdate() {
+        GroundCheck();
+        
         if (_moveDirection * _facingDirection < 0f) FlipSpriteDirection();
-        _rigidbody2D.velocity = new Vector2(_moveDirection * moveSpeed, _rigidbody2D.velocity.y);
-        if (_jumpPerformed && _isGrounded) ProcessJump();
+        
+        ProcessMove();
+        ProcessJump();
+    }
+
+    public void ProcessMove() => _controller.HandleMove(_moveDirection, moveSpeed);
+
+    private void ProcessJump() {
+        if (_jumpPerformed && _isGrounded) {
+            _controller.HandleJump(jumpHeight);
+            _jumpPerformed = false;
+        }
     }
 
     private void FlipSpriteDirection() {
@@ -45,12 +72,6 @@ public class Character : MonoBehaviour {
         var scale = _transform.localScale;
         scale.x = _facingDirection;
         _transform.localScale = scale;
-    }
-
-    private void ProcessJump() {
-        var force = Mathf.Sqrt(-2 * Physics.gravity.y * jumpHeight) * _rigidbody2D.mass;
-        _rigidbody2D.AddForce(Vector2.up * force, ForceMode2D.Impulse);
-        _jumpPerformed = false;
     }
 
     private void GroundCheck() {
