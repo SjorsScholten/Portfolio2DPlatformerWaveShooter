@@ -7,9 +7,32 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
-          <e p="Character.cs" t="Include" />
-          <e p="CharacterController.cs" t="Include" />
-          <e p="Entity.cs" t="Include" />
+          <e p="Entity" t="Include">
+            <e p="Character.cs" t="Include" />
+          </e>
+          <e p="Input" t="Include">
+            <e p="IInputProvider.cs" t="Include" />
+            <e p="PlayerControls.cs" t="Include" />
+            <e p="PlayerInputManager.cs" t="Include" />
+            <e p="PlayerInputProvider.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Util" t="Include">
+          <e p="InteractionSystem" t="Include">
+            <e p="IInteractive.cs" t="Include" />
+            <e p="InteractiveObject.cs" t="Include" />
+            <e p="InteractiveObjectManager.cs" t="Include" />
+          </e>
+          <e p="MenuSystem" t="Include">
+            <e p="IMenu.cs" t="Include" />
+            <e p="IMenuController.cs" t="Include" />
+            <e p="MenuBase.cs" t="Include" />
+            <e p="MenuControllerBase.cs" t="Include" />
+          </e>
+          <e p="Singleton.cs" t="Include" />
+          <e p="StateMachine" t="Include">
+            <e p="IState.cs" t="Include" />
+          </e>
         </e>
       </e>
       <e p="HiveCleanersProject.sln" t="IncludeFlat" />
