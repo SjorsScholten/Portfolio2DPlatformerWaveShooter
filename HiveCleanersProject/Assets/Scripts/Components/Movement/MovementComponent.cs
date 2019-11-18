@@ -6,12 +6,12 @@ namespace Components.Movement {
     [RequireComponent(typeof(InputProvider))]
     [RequireComponent(typeof(Rigidbody2D))]
     public class MovementComponent : MonoBehaviour {
-        [SerializeField] private float speed;
+        [SerializeField] private float speed = 5f;
         
         [Header("Jump Attributes")]
-        [SerializeField] private float jumpHeight;
-        [SerializeField] private float footOffset;
-        [SerializeField] private float groundCheckDistance;
+        [SerializeField] private float jumpHeight = 3f;
+        [SerializeField] private float footOffset = .4f;
+        [SerializeField] private float groundCheckDistance = .2f;
 
         private bool _jumpRequest;
         private bool _isGrounded;

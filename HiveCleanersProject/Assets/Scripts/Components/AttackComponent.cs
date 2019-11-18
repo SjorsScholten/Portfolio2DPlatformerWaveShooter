@@ -5,8 +5,6 @@ using UnityEngine;
 namespace Components {
     [RequireComponent(typeof(InputProvider))]
     public class AttackComponent : MonoBehaviour {
-        [SerializeField] private Vector2 RaycastOriginOffset;
-
         private InputProvider _inputProvider;
         private Transform _transform;
 
@@ -24,13 +22,16 @@ namespace Components {
         }
 
         public void ProcessAttack() {
-            var direction = _inputProvider.MousePosition - (Vector2)_transform.position;
-            Raycast(RaycastOriginOffset, direction, 5f);
+            var direction = (Vector2)Camera.main.ScreenToWorldPoint(_inputProvider.MousePosition);
+            var hit = Raycast(Vector2.up, direction, 10f);
+            if (!hit) return;
+            var target = hit.transform.GetComponent<TargetComponent>();
+            if (target) target.ProcessTakeHit();
         }
         
         private RaycastHit2D Raycast(Vector2 offset, Vector2 rayDirection, float length) {
             var pos = (Vector2)_transform.position;
-            var hit = Physics2D.Raycast(pos + offset, rayDirection, length);
+            var hit = Physics2D.Raycast(pos + offset, rayDirection, length, ~(1<<8));
             var color = hit ? Color.red : Color.green;
             Debug.DrawRay(pos + offset, rayDirection * length, color);
             return hit;
