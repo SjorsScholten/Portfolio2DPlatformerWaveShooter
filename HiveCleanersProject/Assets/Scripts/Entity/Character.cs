@@ -5,7 +5,6 @@ namespace Entity {
     [RequireComponent(typeof(MovementComponent))]
     public class Character : MonoBehaviour {
         private float _facingDirection = 1f;
-        private bool _jumpPerformed;
 
         private Transform _transform;
 
