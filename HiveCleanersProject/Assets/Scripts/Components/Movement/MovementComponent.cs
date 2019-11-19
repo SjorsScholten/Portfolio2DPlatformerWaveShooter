@@ -3,6 +3,11 @@ using Input;
 using UnityEngine;
 
 namespace Components.Movement {
+    
+    /**
+     * TODO: Use struct instead of method for ray casting
+     */
+    
     [RequireComponent(typeof(InputProvider))]
     [RequireComponent(typeof(Rigidbody2D))]
     public class MovementComponent : MonoBehaviour {

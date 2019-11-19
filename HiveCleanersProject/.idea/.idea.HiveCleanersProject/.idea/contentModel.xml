@@ -14,7 +14,13 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="Components" t="Include">
-            <e p="AttackComponent.cs" t="Include" />
+            <e p="Attack" t="Include">
+              <e p="AttackComponent.cs" t="Include" />
+              <e p="ScriptableObjects" t="Include">
+                <e p="Attack.cs" t="Include" />
+                <e p="RayAttack.cs" t="Include" />
+              </e>
+            </e>
             <e p="Movement" t="Include">
               <e p="Behaviours" t="Include">
                 <e p="Grounded2DMovementBehaviour.cs" t="Include" />

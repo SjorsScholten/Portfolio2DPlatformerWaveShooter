@@ -2175,7 +2175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpHeight: 3
+  jumpHeight: 15
   footOffset: 0.4
   groundCheckDistance: 0.2
 --- !u!114 &1798580241
@@ -2202,6 +2202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de2993442568865439b57527e12e7fb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attack: {fileID: 11400000, guid: 526aa9ee5a4a04a47b2accb6ef624e62, type: 2}
 --- !u!1 &1800681819
 GameObject:
   m_ObjectHideFlags: 0
