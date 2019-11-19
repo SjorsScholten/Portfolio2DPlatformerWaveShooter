@@ -31,6 +31,7 @@
               </e>
               <e p="MovementComponent.cs" t="Include" />
             </e>
+            <e p="SpawnComponent.cs" t="Include" />
             <e p="TargetComponent.cs" t="Include" />
           </e>
           <e p="Entity" t="Include">
