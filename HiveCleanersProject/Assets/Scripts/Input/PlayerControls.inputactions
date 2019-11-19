@@ -20,6 +20,30 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press"
+                },
+                {
+                    "name": "Shoot",
+                    "type": "Button",
+                    "id": "7a680398-0bf1-4f0d-b1c8-e852e8e76ec6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "Aim",
+                    "type": "Button",
+                    "id": "ec73f358-401c-4cd6-835f-b47b9af4e4f5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press,Press(behavior=1)"
+                },
+                {
+                    "name": "AimDirection",
+                    "type": "Value",
+                    "id": "ef78ecb7-aa92-47bf-9701-7c3798867ac5",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -66,6 +90,39 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "07b39778-7fd7-4019-a1ce-349e08f17460",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e9673a7a-431b-49dd-98f4-615624d9d9b8",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a192d51c-748f-40ce-b6f5-6ad5be7f9bf9",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AimDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

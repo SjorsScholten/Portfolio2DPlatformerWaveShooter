@@ -34,5 +34,9 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+HiveCleanersProject/Library/
+
+HiveCleanersProject/.idea/.idea.HiveCleanersProject/.idea/
 
 HiveCleanersProject/Library/
