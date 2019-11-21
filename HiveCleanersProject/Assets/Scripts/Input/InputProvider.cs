@@ -1,32 +1,63 @@
 using System;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace Input {
-    [Serializable]
     public class InputProvider : MonoBehaviour {
-        public float HorizontalAxisInput { get; private set; }
-        public Vector2 MousePosition { get; private set; }
+        private enum ProviderType { None, Player, Enemy }
 
+        [SerializeField] private ProviderType providerType = ProviderType.None;
+
+        private IInputProvider _inputProvider;
         
         public event Action OnJumpAction;
-        public event Action OnAttackButton;
-
-        
-        private PlayerControls _playerControls;
+        public event Action OnAttackAction;
 
         private void Awake() {
-            _playerControls = new PlayerControls();
-
-            _playerControls.Player.Move.performed += ctx => HorizontalAxisInput = ctx.ReadValue<float>();
-
-            _playerControls.Player.Jump.performed += ctx => OnJumpAction?.Invoke();
-            
-            _playerControls.Player.AimDirection.performed += ctx => MousePosition = ctx.ReadValue<Vector2>();
-            
-            _playerControls.Player.Shoot.performed += ctx => OnAttackButton?.Invoke();
+            CheckProvider();
         }
 
-        private void OnEnable() => _playerControls.Enable();
-        private void OnDisable() => _playerControls.Disable();
+        private void CheckProvider() {
+            switch (providerType) {
+                
+                case ProviderType.Player:
+                    
+                    _inputProvider = PlayerInputProvider.Instance;
+                    break;
+                
+                
+                case ProviderType.Enemy:
+                    
+                    EnemyInputProvider provider;
+                    if ((provider = GetComponent<EnemyInputProvider>()) == null) {
+                        this.gameObject.AddComponent(typeof(EnemyInputProvider));
+                        provider = GetComponent<EnemyInputProvider>();
+                    }
+                    _inputProvider = provider;
+                    break;
+                
+                
+                default: 
+                    
+                    _inputProvider = new NullInputProvider();
+                    break;
+            }
+        }
+
+        private void OnEnable() {
+            _inputProvider.OnJumpAction += OnJumpActionInvoker;
+            _inputProvider.OnAttackAction += OnAttackActionInvoker;
+        }
+
+        private void OnDisable() {
+            _inputProvider.OnJumpAction -= OnJumpActionInvoker;
+            _inputProvider.OnAttackAction -= OnAttackActionInvoker;
+        }
+        
+        private void OnJumpActionInvoker() => OnJumpAction?.Invoke();
+        private void OnAttackActionInvoker() => OnAttackAction?.Invoke();
+
+        public float HorizontalAxisInput => _inputProvider.HorizontalAxisInput;
+        public Vector2 LookDirection => _inputProvider.LookDirection;
     }
 }
