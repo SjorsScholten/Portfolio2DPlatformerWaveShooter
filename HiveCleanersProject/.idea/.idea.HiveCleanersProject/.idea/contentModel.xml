@@ -39,8 +39,14 @@
           </e>
           <e p="GameObjectPool.cs" t="Include" />
           <e p="Input" t="Include">
+            <e p="IInputProvider.cs" t="Include" />
             <e p="InputProvider.cs" t="Include" />
             <e p="PlayerControls.cs" t="Include" />
+            <e p="Providers" t="Include">
+              <e p="EnemyInputProvider.cs" t="Include" />
+              <e p="NullInputProvider.cs" t="Include" />
+              <e p="PlayerInputProvider.cs" t="Include" />
+            </e>
           </e>
           <e p="Singleton.cs" t="Include" />
           <e p="SpawnManager.cs" t="Include" />

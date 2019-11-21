@@ -6,7 +6,7 @@ namespace Util {
             where TSource : MonoBehaviour 
             where TObject : Component  {
         [SerializeField] private int startAmount = 0;
-        [SerializeField] private TObject prefab;
+        [SerializeField] private TObject prefab = null;
         
         private readonly Queue<TObject> _objects = new Queue<TObject>();
 

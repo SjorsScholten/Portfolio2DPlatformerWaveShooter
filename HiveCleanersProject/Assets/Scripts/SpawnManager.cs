@@ -4,7 +4,7 @@ using UnityEngine;
 using Util;
 
 public class SpawnManager : MonoBehaviour {
-    [SerializeField] private int allowedAmount = 20;
+    //[SerializeField] private int allowedAmount = 20;
     [SerializeField] private float initialSpawnDelay = 12f;
     [SerializeField] private float concurrentSpawnDelay = 5f;
     [SerializeField] private float decayFactor = 0.2f;
@@ -49,5 +49,6 @@ public class SpawnManager : MonoBehaviour {
         
         _spawnComponents[randomIndex].SpawnInstance(entity);
         _lastSpawnAtIndex = randomIndex;
+        _timeLastSpawn = Time.time;
     }
 }
