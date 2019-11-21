@@ -19,7 +19,7 @@ namespace Input {
 
             _playerControls.Player.Jump.performed += ctx => OnJumpAction?.Invoke();
             
-            _playerControls.Player.AimDirection.performed += ctx => LookDirection = ctx.ReadValue<Vector2>();
+            _playerControls.Player.AimDirection.performed += ctx => LookDirection = Camera.main.ScreenToWorldPoint(ctx.ReadValue<Vector2>());
             
             _playerControls.Player.Shoot.performed += ctx => OnAttackAction?.Invoke();
         }

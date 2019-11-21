@@ -126,9 +126,10 @@ GameObject:
   - component: {fileID: 232346846526593150}
   - component: {fileID: 232346846526593123}
   - component: {fileID: 232346846526593148}
+  - component: {fileID: 1536693212}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -202,7 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpHeight: 15
+  jumpHeight: 5
   footOffset: 0.4
   groundCheckDistance: 0.2
 --- !u!50 &232346846526593123
@@ -239,3 +240,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: {fileID: 11400000, guid: 526aa9ee5a4a04a47b2accb6ef624e62, type: 2}
+--- !u!114 &1536693212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232346846526593125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc999c5167c7884a85e771e5f03f8e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

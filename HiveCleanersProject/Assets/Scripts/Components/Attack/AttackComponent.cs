@@ -20,8 +20,9 @@ namespace Components.Attack {
 
         public void OnAttack() {
             var position = _transform.position;
-            var direction = (Vector2)Camera.main.ScreenToWorldPoint(_inputProvider.MousePosition) - (Vector2)position;
-            attack.HandleAttack(position, direction, 8);
+            var direction = (Vector2)_inputProvider.LookDirection - (Vector2)position;
+            direction.Normalize();
+            attack.HandleAttack(position, direction, gameObject.layer);
         }
     }
 }

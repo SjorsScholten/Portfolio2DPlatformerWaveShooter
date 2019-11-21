@@ -20,15 +20,9 @@ namespace Input {
         private void CheckProvider() {
             switch (providerType) {
                 
-                case ProviderType.None:
-                    _inputProvider = new NullInputProvider();
-                    break;
-                
-                
                 case ProviderType.Player:
                     
                     _inputProvider = PlayerInputProvider.Instance;
-                    
                     break;
                 
                 
@@ -43,7 +37,10 @@ namespace Input {
                     break;
                 
                 
-                default: throw new ArgumentOutOfRangeException();
+                default: 
+                    
+                    _inputProvider = new NullInputProvider();
+                    break;
             }
         }
 
@@ -61,6 +58,6 @@ namespace Input {
         private void OnAttackActionInvoker() => OnAttackAction?.Invoke();
 
         public float HorizontalAxisInput => _inputProvider.HorizontalAxisInput;
-        public Vector2 MousePosition => _inputProvider.LookDirection;
+        public Vector2 LookDirection => _inputProvider.LookDirection;
     }
 }

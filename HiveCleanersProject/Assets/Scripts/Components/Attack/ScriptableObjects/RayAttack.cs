@@ -8,7 +8,7 @@ namespace Components.Attack.ScriptableObjects {
             var hit = Physics2D.Raycast(origin, direction, range, layerMask);
             
             var color = hit ? Color.red : Color.green;
-            Debug.DrawRay(origin, direction * range, color, 3);
+            Debug.DrawRay(origin, direction * range, color, 1);
             
             if (!hit) return;
             var target = hit.transform.GetComponent<TargetComponent>();
