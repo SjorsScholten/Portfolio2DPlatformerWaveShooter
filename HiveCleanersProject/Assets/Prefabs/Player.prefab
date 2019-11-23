@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 232346846526593123}
   - component: {fileID: 232346846526593148}
   - component: {fileID: 1536693212}
+  - component: {fileID: 1637550960}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -252,3 +253,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc999c5167c7884a85e771e5f03f8e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnHit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1637550960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232346846526593125}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bd85cf88aec5f94abcc370697a17f3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialHealth: 100
+  regenerateHealth: 1
+  healthRegenerationStartTime: 2
+  healthRegenerationAmount: 10
+  healthRegenerationTick: 1
+  text: {fileID: 0}
