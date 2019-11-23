@@ -12,7 +12,7 @@ namespace Components.Attack.ScriptableObjects {
             
             if (!hit) return;
             var target = hit.transform.GetComponent<TargetComponent>();
-            if (target) target.ProcessTakeHit();
+            if (target) target.ProcessTakeHit(base.damage);
         }
     }
 }

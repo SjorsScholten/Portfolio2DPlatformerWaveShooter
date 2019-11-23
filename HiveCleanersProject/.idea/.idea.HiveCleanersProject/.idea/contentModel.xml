@@ -21,6 +21,7 @@
                 <e p="RayAttack.cs" t="Include" />
               </e>
             </e>
+            <e p="HealthComponent.cs" t="Include" />
             <e p="Movement" t="Include">
               <e p="Behaviours" t="Include">
                 <e p="Grounded2DMovementBehaviour.cs" t="Include" />
@@ -31,7 +32,12 @@
               </e>
               <e p="MovementComponent.cs" t="Include" />
             </e>
-            <e p="SpawnComponent.cs" t="Include" />
+            <e p="Spawn" t="Include">
+              <e p="Editor" t="Include">
+                <e p="SpawnComponentEditor.cs" t="Include" />
+              </e>
+              <e p="SpawnComponent.cs" t="Include" />
+            </e>
             <e p="TargetComponent.cs" t="Include" />
           </e>
           <e p="Entity" t="Include">
