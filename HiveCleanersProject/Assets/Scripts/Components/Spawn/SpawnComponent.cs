@@ -1,8 +1,6 @@
-﻿using System.Runtime.CompilerServices;
-using UnityEngine;
-using Util;
+﻿using UnityEngine;
 
-namespace Components {
+namespace Components.Spawn {
     public class SpawnComponent : MonoBehaviour {
         [SerializeField] private GameObject prefab = null;
         [SerializeField] private int instanceAmount = 0;
@@ -16,5 +14,7 @@ namespace Components {
             instance.transform.position = this.transform.position;
             instance.SetActive(true);
         }
+
+        public void SpawnPrefab() => SpawnInstance(Instantiate(prefab, transform));
     }
 }

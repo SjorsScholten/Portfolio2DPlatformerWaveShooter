@@ -95,13 +95,14 @@ GameObject:
   - component: {fileID: 547444984817443605}
   - component: {fileID: 547444984817443604}
   - component: {fileID: 3603368282595878792}
+  - component: {fileID: 753169162807407678}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &547444984817443611
 Transform:
   m_ObjectHideFlags: 0
@@ -110,7 +111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547444984817443607}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.05, y: 0, z: 0}
+  m_LocalPosition: {x: 3, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 547444985730133435}
@@ -179,6 +180,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc999c5167c7884a85e771e5f03f8e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &547444984817443604
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -218,6 +222,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: {fileID: 11400000, guid: 526aa9ee5a4a04a47b2accb6ef624e62, type: 2}
+--- !u!114 &753169162807407678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547444984817443607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bd85cf88aec5f94abcc370697a17f3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialHealth: 50
+  regenerateHealth: 0
+  healthRegenerationStartTime: 2
+  healthRegenerationAmount: 10
+  healthRegenerationTick: 1
+  text: {fileID: 0}
 --- !u!1 &547444985730133434
 GameObject:
   m_ObjectHideFlags: 0
