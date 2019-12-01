@@ -12,9 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b226d194ae764bde90ab867e1fe7ab63, type: 3}
   m_Name: SimpleRay
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 20
   range: 15
-  attacksPerSecond: 0
-  attacksPerSeries: 0
-  seriesCooldown: 0
   ignoreLayers: 

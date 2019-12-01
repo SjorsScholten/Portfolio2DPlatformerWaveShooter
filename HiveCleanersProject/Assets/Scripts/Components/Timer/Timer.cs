@@ -77,6 +77,10 @@ namespace Components.Timer {
         public float TimeScale {
             get => timeScale;
             set => timeScale = value;
-        } 
+        }
+
+        public bool IsAwake => _isAwake;
+
+        public float InitialTime => initialTime;
     }
 }

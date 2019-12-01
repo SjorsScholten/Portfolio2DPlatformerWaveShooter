@@ -63,8 +63,14 @@
             </e>
           </e>
           <e p="IState.cs" t="Include" />
+          <e p="ScoreManager.cs" t="Include" />
           <e p="Singleton.cs" t="Include" />
           <e p="SpawnManager.cs" t="Include" />
+          <e p="View" t="Include">
+            <e p="HealthBar.cs" t="Include" />
+            <e p="PlayerReticleView.cs" t="Include" />
+            <e p="ScoreView.cs" t="Include" />
+          </e>
         </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">

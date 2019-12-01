@@ -10,7 +10,8 @@ namespace DefaultNamespace {
         [SerializeField] private TimerComponent timer;
 
         private void Update() {
-            text.text = timer.SecondsTime.ToString(CultureInfo.InvariantCulture);
+            var currentTime = timer.SecondsTime;
+            text.text = $"{(currentTime / 3600) % 24:0}:{(currentTime / 60) % 60:00}:{currentTime % 60:00}";
         }
     }
 }
