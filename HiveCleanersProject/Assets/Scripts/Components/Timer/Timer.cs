@@ -8,6 +8,7 @@ namespace Components.Timer {
         [SerializeField] private float initialTime = 0f;
         [SerializeField] private float timeScale = 1f;
         [SerializeField] private bool countDown = false;
+        
         [SerializeField] private bool enableTick = false;
         [SerializeField] private float tickTime = 0f;
 
@@ -81,6 +82,14 @@ namespace Components.Timer {
 
         public bool IsAwake => _isAwake;
 
-        public float InitialTime => initialTime;
+        public float InitialTime {
+           get => initialTime;
+           set => initialTime = value;
+        }
+
+        public float TickTime {
+            get => tickTime;
+            set => tickTime = value;
+        }
     }
 }

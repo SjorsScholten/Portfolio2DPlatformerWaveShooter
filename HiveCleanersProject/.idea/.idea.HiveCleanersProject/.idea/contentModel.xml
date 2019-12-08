@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\sjors\.Rider2018.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\sjors\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_HiveCleanersProject.-1795941265.00" t="ExcludeRecursive" />
-    <e p="D:\Projects\Portfolio2DPlatformerWaveShooter\HiveCleanersProject" t="IncludeRecursive">
+    <e p="C:\Users\sjors\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\sjors\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_HiveCleanersProject.-1335424632.00" t="ExcludeRecursive" />
+    <e p="D:\Unity\Projects\Portfolio2DPlatformerWaveShooter\HiveCleanersProject" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -48,25 +48,37 @@
               <e p="TimerView.cs" t="Include" />
             </e>
           </e>
-          <e p="Entity" t="Include">
+          <e p="Entities" t="Include">
             <e p="Character.cs" t="Include" />
           </e>
-          <e p="GameObjectPool.cs" t="Include" />
-          <e p="Input" t="Include">
-            <e p="IInputProvider.cs" t="Include" />
-            <e p="InputProvider.cs" t="Include" />
-            <e p="PlayerControls.cs" t="Include" />
-            <e p="Providers" t="Include">
-              <e p="EnemyInputProvider.cs" t="Include" />
-              <e p="NullInputProvider.cs" t="Include" />
-              <e p="PlayerInputProvider.cs" t="Include" />
+          <e p="Systems" t="Include">
+            <e p="Events" t="Include">
+              <e p="Signal.cs" t="Include" />
+              <e p="SignalListener.cs" t="Include" />
+              <e p="SignalOnDeath.cs" t="Include" />
             </e>
+            <e p="Input" t="Include">
+              <e p="IInputProvider.cs" t="Include" />
+              <e p="InputProvider.cs" t="Include" />
+              <e p="PlayerControls.cs" t="Include" />
+              <e p="Providers" t="Include">
+                <e p="EnemyInputProvider.cs" t="Include" />
+                <e p="NullInputProvider.cs" t="Include" />
+                <e p="PlayerInputProvider.cs" t="Include" />
+              </e>
+            </e>
+            <e p="ScoreManager.cs" t="Include" />
+            <e p="SpawnManager.cs" t="Include" />
           </e>
-          <e p="IState.cs" t="Include" />
-          <e p="ScoreManager.cs" t="Include" />
-          <e p="Singleton.cs" t="Include" />
-          <e p="SpawnManager.cs" t="Include" />
-          <e p="View" t="Include">
+          <e p="Util" t="Include">
+            <e p="ExtensionMethods" t="Include">
+              <e p="ListExtensionMethods.cs" t="Include" />
+            </e>
+            <e p="GameObjectPool.cs" t="Include" />
+            <e p="IState.cs" t="Include" />
+            <e p="Singleton.cs" t="Include" />
+          </e>
+          <e p="Views" t="Include">
             <e p="HealthBar.cs" t="Include" />
             <e p="PlayerReticleView.cs" t="Include" />
             <e p="ScoreView.cs" t="Include" />
@@ -102,12 +114,9 @@
         </e>
       </e>
       <e p="HiveCleanersProject.sln" t="IncludeFlat" />
-      <e p="Library" t="ExcludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
-      <e p="Temp" t="ExcludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-      </e>
+      <e p="Temp\bin" t="ExcludeRecursive" />
     </e>
   </component>
 </project>

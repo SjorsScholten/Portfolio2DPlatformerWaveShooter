@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace Components {
     public class HealthComponent : MonoBehaviour {
@@ -17,6 +18,9 @@ namespace Components {
         [SerializeField] private float healthRegenerationTick = 1f;
 
         [SerializeField] private TextMeshProUGUI text;
+
+        public UnityEvent onDamage = new UnityEvent();
+        public UnityEvent onDeath = new UnityEvent();
 
         private float _currentHealth;
         private IEnumerator _regenerationCouroutine;
@@ -56,6 +60,8 @@ namespace Components {
 
             if (regenerateHealth && !_isDead)
                 StartHealthRegeneration();
+            
+            onDamage?.Invoke();
         }
 
         public void Heal(float value) {
@@ -68,6 +74,7 @@ namespace Components {
         private void Die() {
             if (_isDead) return;
             _isDead = true;
+            onDeath.Invoke();
             Destroy(this.gameObject);
         }
 
