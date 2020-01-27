@@ -1,18 +1,16 @@
 ﻿using System.Collections;
 using Components;
 using Components.Timer;
+using Entity;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace View {
     [RequireComponent(typeof(CanvasGroup))]
     public class HealthBar : MonoBehaviour {
-        [SerializeField] private HealthComponent target;
-        
+        [SerializeField] private LivingEntity target;
         [SerializeField] private Image foreground;
-        
         [SerializeField] private Vector2 offset = new Vector2(0f, 2f);
-
         [SerializeField] private Timer displayTimer = new Timer(1, true);
         
         private Transform _transform;
@@ -29,7 +27,6 @@ namespace View {
             _elements = GetComponent<CanvasGroup>();
             
             displayTimer.OnTimerEnd += Hide;
-            target.OnHealthPercentChanged += SetFillPercent;
         }
         
         private void Update() => displayTimer.Update(Time.deltaTime);

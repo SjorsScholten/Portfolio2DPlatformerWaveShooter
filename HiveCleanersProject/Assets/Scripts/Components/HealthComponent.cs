@@ -10,8 +10,7 @@ using UnityEngine.Serialization;
 
 namespace Components {
     public class HealthComponent : MonoBehaviour {
-        [SerializeField] private float initialHealth = 100f;
-    
+        /*
         [SerializeField] private bool regenerateHealth = false;
         [SerializeField] private float healthRegenerationStartTime = 2f;
         [SerializeField] private float healthRegenerationAmount = 10f;
@@ -19,63 +18,13 @@ namespace Components {
 
         [SerializeField] private TextMeshProUGUI text;
 
-        public UnityEvent onDamage = new UnityEvent();
-        public UnityEvent onDeath = new UnityEvent();
-
-        private float _currentHealth;
         private IEnumerator _regenerationCouroutine;
 
         //flags
-        private bool _isDead = false;
         private bool _isRegenerating = false;
 
-        private TargetComponent _targetComponent;
-
-        public event Action<float> OnHealthPercentChanged;
-
         private void Awake() {
-            _targetComponent = GetComponent<TargetComponent>();
-            CurrentHealth = initialHealth;
-        }
-
-        private void OnEnable() {
-            if (_targetComponent) _targetComponent.OnHit.AddListener(TakeDamage);
-        }
-
-        private void OnDisable() {
-            if(_targetComponent) _targetComponent.OnHit.RemoveListener(TakeDamage);
-        }
-
-        public void TakeDamage(float damage) {
-            if (damage < 0 || _isDead) return;
-
-            StopHealthRegenerating();
-        
-            CurrentHealth -= damage;
-        
-            if (CurrentHealth <= 0) {
-                Die();
-                return;
-            }
-
-            if (regenerateHealth && !_isDead)
-                StartHealthRegeneration();
-            
-            onDamage?.Invoke();
-        }
-
-        public void Heal(float value) {
-            if (value < 0) return;
-        
-            if (CurrentHealth + value > initialHealth) CurrentHealth = initialHealth;
-            else CurrentHealth += value;
-        }
-
-        private void Die() {
-            if (_isDead) return;
-            _isDead = true;
-            onDeath.Invoke();
-            Destroy(this.gameObject);
+            _currentHealth = initialHealth;
         }
 
         private void StartHealthRegeneration() {
@@ -96,22 +45,12 @@ namespace Components {
 
         private IEnumerator HealthRegenerating() {
             yield return new WaitForSeconds(healthRegenerationStartTime);
-            while (CurrentHealth < initialHealth) {
-                CurrentHealth += healthRegenerationAmount;
+            while (_currentHealth < initialHealth) {
+                ChangeCurrentHealth(healthRegenerationAmount);
                 yield return new WaitForSeconds(healthRegenerationTick);
             }
         }
 
-    
-        public float CurrentHealth {
-            get => _currentHealth;
-            private set {
-                _currentHealth = value;
-                if(text) text.text = _currentHealth.ToString(CultureInfo.InvariantCulture);
-                OnHealthPercentChanged?.Invoke(HealthPercent);
-            }
-        }
-
-        public float HealthPercent => CurrentHealth / initialHealth;
+        */
     }
 }

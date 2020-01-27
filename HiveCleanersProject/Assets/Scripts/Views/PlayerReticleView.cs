@@ -15,7 +15,7 @@ namespace View {
         }
 
         private void LateUpdate() {
-            _transform.position = _camera.WorldToScreenPoint(target.Direction + target.Position);
+            //_transform.position = _camera.WorldToScreenPoint(target.Direction + target.Position);
         }
     }
 }

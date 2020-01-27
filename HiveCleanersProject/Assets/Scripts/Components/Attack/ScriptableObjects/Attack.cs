@@ -5,9 +5,11 @@ namespace Components.Attack.ScriptableObjects {
     public abstract class Attack : ScriptableObject {
         [SerializeField] protected float damage = 10f;
         [SerializeField] protected float range = 0;
+        
         //[SerializeField] private float attacksPerSecond = 0;
         //[SerializeField] private int attacksPerSeries = 0;
         //[SerializeField] private float seriesCooldown = 0;
+        
         [SerializeField] private int[] ignoreLayers = new int[0];
 
         private float _timeSinceLastAttack;

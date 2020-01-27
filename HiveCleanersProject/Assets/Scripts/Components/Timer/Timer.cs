@@ -31,7 +31,7 @@ namespace Components.Timer {
         public void Update(float deltaTime) {
             if(!_isAwake) return;
             
-            _currentTime += deltaTime * TimeScale * (countDown ? -1 : 1);
+            _currentTime += deltaTime * timeScale * (countDown ? -1 : 1);
 
             CheckTimerTick();
             CheckTimerEnd();
